@@ -1,0 +1,177 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Fredoka:wght@300..700&family=Inter:wght@400;500;600;700&family=Parisienne&display=swap');
+
+:root {
+  --primary: #FF3366;
+  --secondary: #FFCCD5;
+  --text: #4A0E1C;
+  /* Darker gradient for better contrast if needed, but keeping it light and airy */
+  --bg-gradient: linear-gradient(180deg, #ffe6eb 0%, #ffd1dc 100%);
+}
+
+* {
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+body,
+html {
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+  height: 100dvh;
+  overflow: hidden;
+  overscroll-behavior: none;
+  background: var(--bg-gradient);
+  font-family: 'Inter', sans-serif;
+  color: var(--text);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Background Hearts */
+.floating-hearts-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.floating-heart {
+  position: absolute;
+  bottom: -20px;
+  color: #ff3366;
+  /* Darker pink for better visibility */
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+  opacity: 0;
+  animation: floatUp 15s linear infinite;
+  font-size: 1.5rem;
+}
+
+@keyframes floatUp {
+  0% {
+    transform: translateY(0) scale(0.5) rotate(0deg);
+    opacity: 0;
+  }
+
+  10% {
+    opacity: 0.4;
+  }
+
+  90% {
+    opacity: 0.4;
+  }
+
+  100% {
+    transform: translateY(-110dvh) scale(1.2) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+/* Click Heart Animation */
+.click-heart {
+  position: fixed;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  /* Center on click */
+  animation: popAndFloat 1s ease-out forwards;
+  z-index: 9999;
+  font-size: 2rem;
+}
+
+@keyframes popAndFloat {
+  0% {
+    transform: translate(-50%, -50%) scale(0);
+    opacity: 0;
+  }
+
+  20% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1.2);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -150%) scale(1);
+  }
+}
+
+/* Typography Classes */
+.font-title {
+  font-family: 'Fredoka', sans-serif;
+  font-weight: 700;
+}
+
+.font-body {
+  font-family: 'Inter', sans-serif;
+  /* Changed from script for readability */
+  font-weight: 500;
+}
+
+.font-romantic {
+  font-family: 'Parisienne', cursive;
+}
+
+/* Glass UI */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 2px solid white;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  border-radius: 24px;
+}
+
+/* Buttons */
+.btn-main {
+  background: linear-gradient(135deg, #FF3366 0%, #ff0642 100%);
+  color: white;
+  border: none;
+  font-family: 'Fredoka', sans-serif;
+  font-weight: 700;
+  border-radius: 50px;
+  box-shadow: 0 4px 15px rgba(255, 51, 102, 0.4);
+  transition: transform 0.1s;
+}
+
+.btn-main:active {
+  transform: scale(0.95);
+}
+
+/* Card Stack */
+.card-stack-item {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 15px 15px 50px 15px;
+  background: white;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.card-image {
+  flex: 1;
+  width: 100%;
+  background-color: #f0f0f0;
+  border-radius: 12px;
+  overflow: hidden;
+  position: relative;
+}
+
+.card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  pointer-events: none;
+}
