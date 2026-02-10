@@ -59,5 +59,8 @@ podman run --rm -p 5173:5173 -v ".:/app" -w "/app" node:lts npm run dev -- --hos
 - **Dynamic Proposal**: A "No" button that runs away and a "Yes" button that grows proportionally.
 - **Personalized Success Message**: Based on how many times "No" was pressed.
 
+## 📄 License
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
 ---
 Made with ❤️ using React + Vite + Framer Motion. 🌹
